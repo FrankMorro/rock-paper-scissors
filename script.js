@@ -58,12 +58,12 @@ function game() {
         break;
 
       case 0:
-        message = `You lost, ${playerSelection} loses to ${computerSelection}`;
+        message = `You lose!, ${computerSelection} beats ${playerSelection}`;
         computeScore++;
         break;
 
       case 1:
-        message = `EXCELLENT, You have won this round, ${playerSelection} beat ${computerSelection}`;
+        message = `EXCELLENT, You have won this round, ${playerSelection} beats ${computerSelection}`;
         userScore++;
         break;
     }
@@ -72,8 +72,8 @@ function game() {
     console.log("PC Choice......: " + computerSelection);
 
     console.log(message);
-    console.log("PC:...: " + computeScore);
-    console.log("User..: " + userScore);
+    console.log("PC score....: " + computeScore);
+    console.log("User score..: " + userScore);
   }
 }
 
