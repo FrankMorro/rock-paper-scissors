@@ -90,7 +90,7 @@ a {
   padding: 10px;
   justify-content: space-evenly;
   flex-wrap: wrap;
-  gap: 20px;
+  gap: 10px;
   padding: 20px;
 }
 
@@ -179,9 +179,9 @@ a {
 }
 
 .win {
-  border: solid thick rgb(128, 207, 11);
+  border: solid 8px rgb(128, 207, 11);
   border-radius: 1em;
-  box-shadow: 0 0 10px green;
+  box-shadow: 0 0 15px green;
 }
 
 .message-display {
@@ -324,7 +324,7 @@ span {
 .footer-container {
   height: 100px;
   background-color: #263a29;
-  color: white;
+  color: #f2e3db;
   display: flex;
   align-items: center;
   align-content: center;
