@@ -251,7 +251,7 @@ function resetGame() {
   imgElementPlayerPC.classList.remove("win");
   imgElementPlayerPC.classList.remove("lose");
 
-  display.innerHTML = "Que gane el Mejor!!!";
+  display.innerHTML = "May the best win!!!";
 
   imgElementPlayerPC.src = "./img/all.png";
   imgElementPlayerUser.src = "./img/all.png";
