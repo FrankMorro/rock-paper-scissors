@@ -14,6 +14,8 @@ const optPiedra = document.querySelector(".piedra");
 const optPapel = document.querySelector(".papel");
 const optTijera = document.querySelector(".tijera");
 
+const options = document.querySelectorAll(".option-img");
+
 let currentActiveUser = 0;
 let currentActivePC = 0;
 
@@ -50,20 +52,17 @@ function updateScorePC() {
     }
   });
 
-  console.log(currentActivePC);
-
   const actives = document.querySelectorAll(".active-pc");
 
   progressPC.style.width =
     ((actives.length - 1) / (circlesPC.length - 1)) * 100 + "%";
 
-  console.log("Circle pc: " + circlesPC.length);
-  console.log("Active pc: " + actives.length);
-
   if (currentActivePC === 1) {
     //prev.disabled = true
   } else if (currentActivePC === circlesPC.length) {
-    optPiedra.disabled = true;
+    options.forEach((option) => {
+      option.classList.add("not-active");
+    });
   } else {
     //prev.disabled = false
     optPiedra.disabled = false;
@@ -84,13 +83,12 @@ function updateScoreUser() {
   progressUser.style.width =
     ((actives.length - 1) / (circlesUser.length - 1)) * 100 + "%";
 
-  console.log("Circle User: " + circlesUser.length);
-  console.log("Active User: " + actives.length);
-
   if (currentActiveUser === 1) {
     //prev.disabled = true
   } else if (currentActiveUser === circlesUser.length) {
-    optPiedra.disabled = true;
+    options.forEach((option) => {
+      option.classList.add("not-active");
+    });
   } else {
     //prev.disabled = false
     optPiedra.disabled = false;
@@ -270,6 +268,10 @@ function resetGame() {
   currentActiveUser = 0;
   currentActivePC = 0;
 
-  updateScorePC();
-  updateScoreUser();
+  progressUser.style.width = 0;
+  progressPC.style.width = 0;
+
+  options.forEach((option) => {
+    option.classList.remove("not-active");
+  });
 }
