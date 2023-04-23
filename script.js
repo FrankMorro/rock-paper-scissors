@@ -32,7 +32,6 @@ const imgElementPlayerPC = document.querySelector("#player1");
 const imgElementPlayerUser = document.querySelector("#player2");
 
 let messageDisplay = document.querySelector("#display");
-
 let computerSelection = "";
 let playerSelection = "";
 
@@ -249,8 +248,8 @@ function resetGame() {
 
   display.innerHTML = "Que gane el Mejor!!!";
 
-  imgElementPlayerPC.src = "./img/jm-nwe.png";
-  imgElementPlayerUser.src = "./img/jm-nwe.png";
+  imgElementPlayerPC.src = "./img/all.png";
+  imgElementPlayerUser.src = "./img/all.png";
 
   circlesUser.forEach((circle, idx) => {
     circle.classList.remove("active-user");
