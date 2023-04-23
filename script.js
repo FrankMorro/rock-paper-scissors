@@ -1,37 +1,142 @@
 let userScore = 0;
 let computeScore = 0;
 
-function getRandomIntInclusive(min, max) {
-  // return Math.floor(Math.random() * max);
+const progressUser = document.getElementById("progress-user");
+const circlesUser = document.querySelectorAll(".circle-user");
 
+const progressPC = document.getElementById("progress-pc");
+const circlesPC = document.querySelectorAll(".circle-pc");
+
+const activesUser = document.querySelectorAll(".active-user");
+const activesPC = document.querySelectorAll(".active-pc");
+
+const optPiedra = document.querySelector(".piedra");
+const optPapel = document.querySelector(".papel");
+const optTijera = document.querySelector(".tijera");
+
+let currentActiveUser = 0;
+let currentActivePC = 0;
+
+const scores = document.querySelectorAll(".circle");
+
+const IMG_SRC_PIEDRA = "./img/piedra.png";
+const IMG_SRC_PAPEL = "./img/paper.png";
+const IMG_SRC_TIJERA = "./img/tijera.png";
+const ROCK = "ROCK";
+const PAPER = "PAPER";
+const SCISSORS = "SCISSORS";
+
+const imgElementPlayerPC = document.querySelector("#player1");
+const imgElementPlayerUser = document.querySelector("#player2");
+
+let messageDisplay = document.querySelector("#display");
+
+let computerSelection = "";
+let playerSelection = "";
+
+optPiedra.addEventListener("click", () => {
+  updateImgUserPiedra();
+
+  updateScorePC();
+  updateScoreUser();
+});
+
+function updateScorePC() {
+  circlesPC.forEach((circle, idx) => {
+    if (idx < currentActivePC) {
+      circle.classList.add("active-pc");
+    } else {
+      circle.classList.remove("active-pc");
+    }
+  });
+
+  console.log(currentActivePC);
+
+  const actives = document.querySelectorAll(".active-pc");
+
+  progressPC.style.width =
+    ((actives.length - 1) / (circlesPC.length - 1)) * 100 + "%";
+
+  console.log("Circle pc: " + circlesPC.length);
+  console.log("Active pc: " + actives.length);
+
+  if (currentActivePC === 1) {
+    //prev.disabled = true
+  } else if (currentActivePC === circlesPC.length) {
+    optPiedra.disabled = true;
+  } else {
+    //prev.disabled = false
+    optPiedra.disabled = false;
+  }
+}
+
+function updateScoreUser() {
+  circlesUser.forEach((circle, idx) => {
+    if (idx < currentActiveUser) {
+      circle.classList.add("active-user");
+    } else {
+      circle.classList.remove("active-user");
+    }
+  });
+
+  const actives = document.querySelectorAll(".active-user");
+
+  progressUser.style.width =
+    ((actives.length - 1) / (circlesUser.length - 1)) * 100 + "%";
+
+  console.log("Circle User: " + circlesUser.length);
+  console.log("Active User: " + actives.length);
+
+  if (currentActiveUser === 1) {
+    //prev.disabled = true
+  } else if (currentActiveUser === circlesUser.length) {
+    optPiedra.disabled = true;
+  } else {
+    //prev.disabled = false
+    optPiedra.disabled = false;
+  }
+}
+
+function getRandomIntInclusive(min, max) {
   min = Math.ceil(min);
   max = Math.floor(max);
   return Math.floor(Math.random() * (max - min + 1) + min);
 }
 
-function getComputerChoice() {
+const getComputerChoice = () => {
   let choice = getRandomIntInclusive(1, 3);
   //console.log("Computer selection: " + choice);
 
-  if (choice === 1) return "ROCK";
-  if (choice === 2) return "PAPER";
-  if (choice === 3) return "SCISSORS";
-}
+  if (choice === 1) {
+    imgElementPlayerPC.src = IMG_SRC_PIEDRA;
+    return ROCK;
+  }
+
+  if (choice === 2) {
+    imgElementPlayerPC.src = IMG_SRC_PAPEL;
+    return PAPER;
+  }
+
+  if (choice === 3) {
+    imgElementPlayerPC.src = IMG_SRC_TIJERA;
+    return SCISSORS;
+  }
+};
 
 function playRound(playerSelection, computerSelection) {
   playerSelection = playerSelection.toUpperCase();
 
   if (playerSelection === computerSelection) return -1;
 
-  if (playerSelection === "ROCK" && computerSelection === "PAPER") {
+  if (playerSelection === ROCK && computerSelection === PAPER) {
     return 0;
   }
 
-  if (playerSelection === "PAPER" && computerSelection === "SCISSORS") {
+  if (playerSelection === PAPER && computerSelection === SCISSORS) {
     return 0;
   }
 
-  if (playerSelection === "SCISSORS" && computerSelection === "ROCK") {
+  if (playerSelection === SCISSORS && computerSelection === ROCK) {
     return 0;
   }
 
@@ -39,46 +144,48 @@ function playRound(playerSelection, computerSelection) {
 }
 
 function game() {
-  let count = 5;
+  let isGanador = playRound(playerSelection, computerSelection);
+  let message = "";
+  imgElementPlayerUser.classList.remove("win");
+  imgElementPlayerUser.classList.remove("lose");
+  imgElementPlayerPC.classList.remove("win");
+  imgElementPlayerPC.classList.remove("lose");
 
-  for (let index = 1; index <= count; index++) {
-    let message = "";
-    let computerSelection = getComputerChoice();
-    let playerSelection = "paper"; //prompt(
-    // "Write your choice of ROCK, PAPER OR SCISSORS, to play"
-    // );
+  switch (isGanador) {
+    case -1:
+      message = "No one wins, there was a Draw!";
+      imgElementPlayerUser.classList.remove("win");
+      imgElementPlayerUser.classList.remove("lose");
+      imgElementPlayerPC.classList.remove("win");
+      imgElementPlayerPC.classList.remove("lose");
+      break;
 
-    playerSelection = playerSelection.toUpperCase();
+    case 0:
+      message = `You lose!, ${computerSelection} beats ${playerSelection}`;
+      imgElementPlayerUser.classList.add("lose");
+      imgElementPlayerPC.classList.add("win");
+      computeScore++;
+      currentActivePC++;
+      break;
 
-    let isGanador = playRound(playerSelection, computerSelection);
-
-    switch (isGanador) {
-      case -1:
-        message = "No one wins, there was a Draw!";
-        break;
-
-      case 0:
-        message = `You lose!, ${computerSelection} beats ${playerSelection}`;
-        computeScore++;
-        break;
-
-      case 1:
-        message = `EXCELLENT, You have won this round, ${playerSelection} beats ${computerSelection}`;
-        userScore++;
-        break;
-    }
-
-    console.log("Your choice....: " + playerSelection);
-    console.log("PC Choice......: " + computerSelection);
-
-    console.log(message);
-    console.log("PC score....: " + computeScore);
-    console.log("User score..: " + userScore);
+    case 1:
+      message = `You have won this round, ${playerSelection} beats ${computerSelection}`;
+      imgElementPlayerUser.classList.add("win");
+      imgElementPlayerPC.classList.add("lose");
+      userScore++;
+      currentActiveUser++;
+      break;
   }
-}
 
-// We start the game
-game();
+  display.innerHTML = message;
+
+  console.log("Your choice....: " + playerSelection);
+  console.log("PC Choice......: " + computerSelection);
+
+  console.log(message);
+  console.log("PC score....: " + computeScore);
+  console.log("User score..: " + userScore);
+}
 
 if (userScore === computeScore) {
   console.log("TIE! nobody wins");
@@ -86,4 +193,80 @@ if (userScore === computeScore) {
   console.log("CONGRATULATIONS! You are the resounding winner");
 } else {
   console.log("YOU LOST! Try again!");
+}
+
+function updateImgUserPiedra() {
+  imgElementPlayerUser.src = IMG_SRC_PIEDRA;
+  computerSelection = getComputerChoice();
+  playerSelection = ROCK;
+  game();
+
+  if (currentActiveUser > circlesUser.length) {
+    currentActiveUser = circlesUser.length;
+  }
+
+  if (currentActivePC > circlesPC.length) {
+    currentActivePC = circlesPC.length;
+  }
+}
+
+const updateImgUserPapel = () => {
+  imgElementPlayerUser.src = IMG_SRC_PAPEL;
+  computerSelection = getComputerChoice();
+  playerSelection = PAPER;
+
+  game();
+
+  if (currentActiveUser > circlesUser.length) {
+    currentActiveUser = circlesUser.length;
+  }
+
+  if (currentActivePC > circlesPC.length) {
+    currentActivePC = circlesPC.length;
+  }
+
+  updateScorePC();
+  updateScoreUser();
+};
+
+const updateImgUserTijera = () => {
+  imgElementPlayerUser.src = IMG_SRC_TIJERA;
+  computerSelection = getComputerChoice();
+  playerSelection = SCISSORS;
+
+  game();
+
+  if (currentActiveUser > circlesUser.length) {
+    currentActiveUser = circlesUser.length;
+  }
+
+  if (currentActivePC > circlesPC.length) {
+    currentActivePC = circlesPC.length;
+  }
+
+  updateScorePC();
+  updateScoreUser();
+};
+
+function resetGame() {
+  imgElementPlayerUser.classList.remove("win");
+  imgElementPlayerUser.classList.remove("lose");
+  imgElementPlayerPC.classList.remove("win");
+  imgElementPlayerPC.classList.remove("lose");
+
+  display.innerHTML = "Que gane el Mejor!!!";
+
+  imgElementPlayerPC.src = "./img/jm-nwe.png";
+  imgElementPlayerUser.src = "./img/jm-nwe.png";
+
+  circlesUser.forEach((circle, idx) => {
+    circle.classList.remove("active-user");
+  });
+
+  circlesPC.forEach((circle, idx) => {
+    circle.classList.remove("active-pc");
+  });
+
+  currentActiveUser = 0;
+  currentActivePC = 0;
 }
