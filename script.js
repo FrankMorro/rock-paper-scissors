@@ -10,9 +10,9 @@ const circlesPC = document.querySelectorAll(".circle-pc");
 const activesUser = document.querySelectorAll(".active-user");
 const activesPC = document.querySelectorAll(".active-pc");
 
-const optPiedra = document.querySelector(".piedra");
-const optPapel = document.querySelector(".papel");
-const optTijera = document.querySelector(".tijera");
+const optPiedra = document.querySelector(".rock");
+const optPapel = document.querySelector(".paper");
+const optTijera = document.querySelector(".scissors");
 
 const options = document.querySelectorAll(".option-img");
 
@@ -21,9 +21,9 @@ let currentActivePC = 0;
 
 const scores = document.querySelectorAll(".circle");
 
-const IMG_SRC_PIEDRA = "./img/piedra.png";
+const IMG_SRC_PIEDRA = "./img/rock.png";
 const IMG_SRC_PAPEL = "./img/paper.png";
-const IMG_SRC_TIJERA = "./img/tijera.png";
+const IMG_SRC_TIJERA = "./img/scissors.png";
 const ROCK = "ROCK";
 const PAPER = "PAPER";
 const SCISSORS = "SCISSORS";
