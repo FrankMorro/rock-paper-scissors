@@ -15,7 +15,7 @@
   <body>
     <nav class="navbar">
       <div class="logo">
-        <img class="logo-img" src="./img/jm nwe.png" width="50" alt="" />
+        <img class="logo-img" src="./img/jm-nwe.png" width="50" alt="" />
         <p class="logo-title">The World of Digital</p>
       </div>
 
@@ -34,18 +34,18 @@
         Debes ganar 5 rondas para vencerla, pero llega primero que ella.<br />
         Los empates no cuenta. ATRÉVETE AHORA!
       </p>
-      <button id="btn">Iniciar Juego</button>
+      <button onclick="resetGame()" id="btn">Iniciar Juego</button>
     </div>
 
     <div class="game-container">
       <div class="progress-container">
         <!-- Pendiente, colocar la clase active para indicar al componente que está activo -->
-        <div class="progress" id="progress"></div>
-        <div class="circle active">1</div>
-        <div class="circle active">2</div>
-        <div class="circle active">3</div>
-        <div class="circle">4</div>
-        <div class="circle">5</div>
+        <div class="progress progress-pc" id="progress-pc"></div>
+        <div class="circle circle-pc">1</div>
+        <div class="circle circle-pc">2</div>
+        <div class="circle circle-pc">3</div>
+        <div class="circle circle-pc">4</div>
+        <div class="circle circle-pc">5</div>
       </div>
     </div>
 
@@ -55,9 +55,10 @@
           <p class="player">PC Choice</p>
           <div class="selection">
             <img
+              id="player1"
               class="selection-img lose"
               src="./img/paper.png"
-              alt="imagen piedra"
+              alt=""
             />
           </div>
         </div>
@@ -66,55 +67,58 @@
           <p class="player">Your Choice</p>
           <div class="selection">
             <img
+              id="player2"
               class="selection-img win"
               src="./img/tijera.png"
-              alt="imagen piedra"
+              alt=""
             />
           </div>
         </div>
       </div>
       <div class="message-container">
-        <p class="message-display">EXCELLENT! You win, SCISSORS beats PAPER</p>
+        <p id="display" class="message-display">
+          EXCELLENT! You win, SCISSORS beats PAPER
+        </p>
       </div>
     </div>
 
     <div class="game-container">
       <div class="progress-container">
-        <div class="progress" id="progress"></div>
-        <div class="circle active">1</div>
-        <div class="circle active">2</div>
-        <div class="circle active">3</div>
-        <div class="circle active">4</div>
-        <div class="circle">5</div>
+        <div class="progress progress-user" id="progress-user"></div>
+        <div class="circle circle-user">1</div>
+        <div class="circle circle-user">2</div>
+        <div class="circle circle-user">3</div>
+        <div class="circle circle-user">4</div>
+        <div class="circle circle-user">5</div>
       </div>
     </div>
 
     <div class="options-container">
       <div class="selection-options-container">
-        <div class="selection-option piedra">
-          <a id="piedra" class="selection-option-img">
-            <img
-              class="option-img"
-              src="./img/piedra.png"
-              alt="imagen piedra"
-            />
-          </a>
+        <div class="selection-option">
+          <img
+            class="option-img piedra"
+            src="./img/piedra.png"
+            alt="imagen piedra"
+          />
           <span>PIEDRA</span>
         </div>
-        <div class="selection-option papel">
-          <a id="papel" class="selection-option-img">
-            <img class="option-img" src="./img/paper.png" alt="imagen papel" />
-          </a>
+        <div class="selection-option">
+          <img
+            onclick="updateImgUserPapel()"
+            class="option-img papel"
+            src="./img/paper.png"
+            alt="imagen papel"
+          />
           <span>PAPEL</span>
         </div>
-        <div class="selection-option tijera">
-          <a id="tijera" class="selection-option-img">
-            <img
-              class="option-img"
-              src="./img/tijera.png"
-              alt="imagen tijera"
-            />
-          </a>
+        <div class="selection-option">
+          <img
+            onclick="updateImgUserTijera()"
+            class="option-img tijera"
+            src="./img/tijera.png"
+            alt="imagen tijera"
+          />
           <span>TIJERA</span>
         </div>
       </div>

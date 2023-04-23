@@ -209,7 +209,7 @@ a {
 
 .progress-container::before {
   content: "";
-  background-color: var(--line-border-empty);
+  background-color: #958d8d;
   position: absolute;
   top: 50%;
   left: 0;
@@ -219,8 +219,32 @@ a {
   z-index: -1;
 }
 
-.progress {
-  background-color: var(--line-border-fill);
+/* .progress {
+  background-color: #ffc600;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  height: 4px;
+  width: 0%;
+  z-index: -1;
+  transition: 0.4s ease;
+} */
+
+.progress-user {
+  background-color: #ffc600;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  height: 4px;
+  width: 0%;
+  z-index: -1;
+  transition: 0.4s ease;
+}
+
+.progress-pc {
+  background-color: #ffc600;
   position: absolute;
   top: 50%;
   left: 0;
@@ -245,8 +269,16 @@ a {
   transition: 0.4s ease;
 }
 
-.circle.active {
-  border-color: var(--line-border-fill);
+.circle-user.active-user {
+  background-color: #235333;
+  color: azure;
+
+  border: solid thick #ffc600;
+  border-radius: 1em;
+  box-shadow: 0 0 10px #f7f75e;
+}
+
+.circle-pc.active-pc {
   background-color: #235333;
   color: azure;
 
@@ -268,7 +300,6 @@ a {
   align-content: center;
   justify-content: center;
   gap: 10px;
-  /* padding: 10px; */
 }
 
 .selection-option {
@@ -281,6 +312,7 @@ a {
   width: 130px;
   height: 130px;
   border-radius: 1em;
+  gap: 8px;
 }
 
 .option-img {
@@ -296,6 +328,7 @@ a {
   border-radius: 1em;
   box-shadow: 0 0 10px #e86a33;
   cursor: pointer;
+  transform: scale(1.1);
 }
 
 .option-img:active {
