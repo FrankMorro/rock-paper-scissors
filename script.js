@@ -269,4 +269,7 @@ function resetGame() {
 
   currentActiveUser = 0;
   currentActivePC = 0;
+
+  updateScorePC();
+  updateScoreUser();
 }
