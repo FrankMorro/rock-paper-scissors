@@ -63,6 +63,8 @@ function updateScorePC() {
     options.forEach((option) => {
       option.classList.add("not-active");
     });
+
+    display.innerHTML = "YOU LOST! Try again!";
   } else {
     //prev.disabled = false
     optPiedra.disabled = false;
@@ -89,6 +91,8 @@ function updateScoreUser() {
     options.forEach((option) => {
       option.classList.add("not-active");
     });
+
+    display.innerHTML = "CONGRATULATIONS! You are the resounding winner";
   } else {
     //prev.disabled = false
     optPiedra.disabled = false;
@@ -103,7 +107,6 @@ function getRandomIntInclusive(min, max) {
 
 const getComputerChoice = () => {
   let choice = getRandomIntInclusive(1, 3);
-  //console.log("Computer selection: " + choice);
 
   if (choice === 1) {
     imgElementPlayerPC.src = IMG_SRC_PIEDRA;
@@ -183,14 +186,6 @@ function game() {
   console.log(message);
   console.log("PC score....: " + computeScore);
   console.log("User score..: " + userScore);
-}
-
-if (userScore === computeScore) {
-  console.log("TIE! nobody wins");
-} else if (userScore > computeScore) {
-  console.log("CONGRATULATIONS! You are the resounding winner");
-} else {
-  console.log("YOU LOST! Try again!");
 }
 
 function updateImgUserPiedra() {
