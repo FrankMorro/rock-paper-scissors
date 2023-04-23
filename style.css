@@ -38,6 +38,7 @@ body {
   border: solid 1px #41644a;
   box-shadow: 0 0 10px #f7f75e;
 }
+
 .logo-title {
   font-size: 28px;
   font-weight: 600;
@@ -94,18 +95,18 @@ a {
 }
 
 .title {
-  font-size: 64px;
+  font-size: 58px;
   color: #f2e3db;
 }
 
 .description {
-  width: 450px;
+  width: 500px auto;
   font-size: 18px;
+  padding: 10px;
 }
 
 #btn {
   padding: 10px;
-  /* border: solid thick #069a5f; */
   border-radius: 0.5em;
   background-color: #069a5f;
   border-color: #25bc7f;
@@ -145,11 +146,22 @@ a {
   margin: 10px;
 }
 
+.player-selection-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  align-content: center;
+  align-items: center;
+  text-align: center;
+}
+
 .player {
   font-size: 18px;
-  font-weight: 500;
+  font-weight: 600;
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
 }
+
 .selection-img {
   width: 120px;
   height: 120px;
@@ -170,6 +182,18 @@ a {
   border: solid thick rgb(128, 207, 11);
   border-radius: 1em;
   box-shadow: 0 0 10px green;
+}
+
+.message-display {
+  font-size: 18px;
+  padding: 5px;
+  border: 2px solid #41644a;
+  border-radius: 5px;
+  width: 500px;
+
+  background-color: #fee8b0;
+  border-style: groove;
+  border-width: 10px;
 }
 
 .progress-container {
@@ -244,7 +268,7 @@ a {
   align-content: center;
   justify-content: center;
   gap: 10px;
-  padding: 10px;
+  /* padding: 10px; */
 }
 
 .selection-option {
@@ -254,8 +278,8 @@ a {
   align-items: center;
   justify-content: center;
   text-align: center;
-  width: 150px;
-  height: 150px;
+  width: 130px;
+  height: 130px;
   border-radius: 1em;
 }
 
@@ -271,6 +295,7 @@ a {
   border: solid thick #e86a33;
   border-radius: 1em;
   box-shadow: 0 0 10px #e86a33;
+  cursor: pointer;
 }
 
 .option-img:active {
@@ -291,5 +316,21 @@ span {
 }
 
 .message {
+  font-size: 20px;
+  padding: 10px;
+}
+
+/* Footer */
+.footer-container {
+  height: 100px;
+  background-color: #263a29;
+  color: white;
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+}
+
+footer {
   font-size: 24px;
 }

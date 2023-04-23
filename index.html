@@ -21,17 +21,17 @@
 
       <div class="header-link">
         <ul>
-          <li><a href="#">Home</a></li>
-          <li><a href="#">Services</a></li>
-          <li><a href="#">Contact</a></li>
+          <li><a href="">Home</a></li>
+          <li><a href="">Services</a></li>
+          <li><a href="">Contact</a></li>
         </ul>
       </div>
     </nav>
     <div class="title-container">
       <h1 class="title">Piedra, Papel o Tijera</h1>
       <p class="description">
-        Enfréntate a un duelo con tu PC en este clásico juego. Debes llegar a 5
-        primero para vencerla.
+        Enfréntate a un duelo con tu PC en este clásico juego. <br />Debes ganar
+        5 rondas para vencerla, pero llega primero que ella.
       </p>
       <button id="btn">Iniciar Juego</button>
     </div>
@@ -41,34 +41,39 @@
         <!-- Pendiente, colocar la clase active para indicar al componente que está activo -->
         <div class="progress" id="progress"></div>
         <div class="circle active">1</div>
-        <div class="circle">2</div>
-        <div class="circle">3</div>
+        <div class="circle active">2</div>
+        <div class="circle active">3</div>
         <div class="circle">4</div>
         <div class="circle">5</div>
       </div>
     </div>
 
-    <div class="selection-container">
-      <div class="selection-player">
-        <p class="player">MACHINE</p>
-        <div class="selection">
-          <img
-            class="selection-img lose"
-            src="./img/paper.png"
-            alt="imagen piedra"
-          />
+    <div class="player-selection-container">
+      <div class="selection-container">
+        <div class="selection-player">
+          <p class="player">MACHINE</p>
+          <div class="selection">
+            <img
+              class="selection-img lose"
+              src="./img/paper.png"
+              alt="imagen piedra"
+            />
+          </div>
+        </div>
+
+        <div class="selection-player">
+          <p class="player">YOU</p>
+          <div class="selection">
+            <img
+              class="selection-img win"
+              src="./img/tijera.png"
+              alt="imagen piedra"
+            />
+          </div>
         </div>
       </div>
-
-      <div class="selection-player">
-        <p class="player">YOU</p>
-        <div class="selection">
-          <img
-            class="selection-img win"
-            src="./img/tijera.png"
-            alt="imagen piedra"
-          />
-        </div>
+      <div class="message-container">
+        <p class="message-display">EXCELLENT! You win, SCISSORS beats PAPER</p>
       </div>
     </div>
 
@@ -78,7 +83,7 @@
         <div class="circle active">1</div>
         <div class="circle active">2</div>
         <div class="circle active">3</div>
-        <div class="circle">4</div>
+        <div class="circle active">4</div>
         <div class="circle">5</div>
       </div>
     </div>
@@ -86,7 +91,7 @@
     <div class="options-container">
       <div class="selection-options-container">
         <div class="selection-option piedra">
-          <a id="piedra" class="selection-option-img" href="#">
+          <a id="piedra" class="selection-option-img">
             <img
               class="option-img"
               src="./img/piedra.png"
@@ -96,13 +101,13 @@
           <span>PIEDRA</span>
         </div>
         <div class="selection-option papel">
-          <a id="papel" class="selection-option-img" href="#">
+          <a id="papel" class="selection-option-img">
             <img class="option-img" src="./img/paper.png" alt="imagen papel" />
           </a>
           <span>PAPEL</span>
         </div>
         <div class="selection-option tijera">
-          <a id="tijera" class="selection-option-img" href="#">
+          <a id="tijera" class="selection-option-img">
             <img
               class="option-img"
               src="./img/tijera.png"
@@ -114,10 +119,13 @@
       </div>
       <div class="message-container">
         <p class="message">
-          Asegúrate de escoger bien tu carta. Que la Máquina no te gane.
+          Asegúrate de escoger bien tu carta. Que la Máquina no te venza.
         </p>
       </div>
     </div>
-    <script src="scripts.js"></script>
+    <section class="footer-container">
+      <footer>Copyright &copy The World of Digital 2023</footer>
+    </section>
+    <script src="script.js"></script>
   </body>
 </html>

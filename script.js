@@ -44,9 +44,9 @@ function game() {
   for (let index = 1; index <= count; index++) {
     let message = "";
     let computerSelection = getComputerChoice();
-    let playerSelection = prompt(
-      "Write your choice of ROCK, PAPER OR SCISSORS, to play"
-    );
+    let playerSelection = "paper"; //prompt(
+    // "Write your choice of ROCK, PAPER OR SCISSORS, to play"
+    // );
 
     playerSelection = playerSelection.toUpperCase();
 
