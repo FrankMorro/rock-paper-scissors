@@ -65,6 +65,7 @@ body {
   justify-content: flex-end;
   align-items: center;
   padding: 16px;
+  gap: 10px;
 }
 
 ul {
@@ -105,7 +106,7 @@ a {
   padding: 10px;
 }
 
-#btn {
+.btn {
   padding: 10px;
   border-radius: 0.5em;
   background-color: #069a5f;
@@ -115,7 +116,7 @@ a {
   color: whitesmoke;
 }
 
-#btn:hover {
+.btn:hover {
   cursor: pointer;
 }
 
