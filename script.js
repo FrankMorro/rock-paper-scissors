@@ -64,6 +64,8 @@ function updateScorePC() {
     });
 
     display.innerHTML = "YOU LOST! Try again!";
+    let audio = document.getElementById("sound-lose");
+    audio.play();
   } else {
     //prev.disabled = false
     optPiedra.disabled = false;
@@ -92,6 +94,9 @@ function updateScoreUser() {
     });
 
     display.innerHTML = "CONGRATULATIONS! You are the resounding winner";
+
+    let audio = document.getElementById("sound-win");
+    audio.play();
   } else {
     //prev.disabled = false
     optPiedra.disabled = false;

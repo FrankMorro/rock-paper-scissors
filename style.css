@@ -347,6 +347,14 @@ span {
   cursor: default;
 }
 
+#sound-win {
+  display: none;
+}
+
+#sound-lose {
+  display: none;
+}
+
 /* Footer */
 .footer-container {
   height: 100px;
